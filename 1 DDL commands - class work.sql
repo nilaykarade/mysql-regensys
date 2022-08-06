@@ -1,4 +1,5 @@
 #DDL ( Data Definition Language) commands
+
 /*
 create
 drop
@@ -35,6 +36,7 @@ add customer_date_joined date,
 add customer_premium_membership bool; #true - 1, false - 0
 
 describe customer;
+
 #modilfy existing column - data type or size
 alter table customer 
 modify customer_contact_no varchar(10),
