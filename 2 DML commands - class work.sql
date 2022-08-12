@@ -8,8 +8,24 @@ delete
 
 #insert ver 1
 insert into ecommerce_customer (customer_name, customer_email,customer_date_joined, customer_premium_membership, customer_mobile_no, customer_delivery_address )
-values('Nilay Karade','nilay@gmail.com','2021-08-15' , true,'9999999999','Pune');
+values('Nilay Karade','nilay@gmail.com','2021-08-15' , true,'9999999999','Johansburb');
 
+insert into ecommerce_customer (customer_name, customer_email,customer_date_joined, customer_premium_membership, customer_mobile_no, customer_delivery_address )
+values('John','john@yahoo.com','2009-08-15' , false,'9999999999','Abu Dhabi');
+
+insert into ecommerce_customer (customer_name, customer_email,customer_date_joined, customer_premium_membership, customer_mobile_no, customer_delivery_address )
+values('Jena','jena@yahoo.com','2009-08-15' , false,'8888999999','Aberdeen');
+
+insert into ecommerce_customer (customer_name, customer_email,customer_date_joined, customer_premium_membership, customer_mobile_no, customer_delivery_address )
+values('Joy','joy@yahoo.com','2003-04-25' , false,'8888999444','Addo');
+
+ 
+ 
+insert into ecommerce_customer (customer_name, customer_email,customer_date_joined, customer_premium_membership, customer_mobile_no, customer_delivery_address )
+values('Meera','Meera@gmail.com','2021-11-15' , true,'8888999999','Lagos');
+
+insert into ecommerce_customer (customer_name, customer_email,customer_date_joined, customer_premium_membership, customer_mobile_no, customer_delivery_address )
+values('Anaya Karade','anaya@gmail.com','2020-05-25' , true,'5559999999','Abuja');
 
 insert into ecommerce_customer (customer_name, customer_email,customer_date_joined, customer_premium_membership, customer_mobile_no, customer_delivery_address)
 values('Samson','Samson@gmail.com','2020-08-15' , true,'8889999999','Abuja');
@@ -56,3 +72,55 @@ select customer_name,customer_mobile_no from ecommerce_customer;
 
 
 show databases;
+
+
+########### Product table ##########
+products(
+    product_id          int unsigned auto_increment primary key, 
+    product_name       varchar(50), 
+    product_description varchar(2000), 
+    category           varchar(30), 
+    unit_price          float
+    );
+
+
+insert into products
+values (null, 'Business Shirt', 'Wrinkle-free cotton business shirt', 'Mens clothing', 300),
+(null, 'Trousers', 'Black trousers suitable for every business man', 'Mens clothing',400),
+(null, 'Jacket', 'Fully lined jacket which is both professional and extremely comfortable to wear', 'Mens clothing', 450 ),
+(null, 'Blouse', 'Silk blouse ideal for all business women', 'Womens clothing', 300),
+(null, 'Skirt', 'Wrinkle free skirt', 'Womens clothing', 320),
+(null, 'Ladies Shoes', 'Low heel and cushioned interior for comfort and style in simple yet elegant shoes', 'Womens clothing',250 ),
+(null, 'Belt', 'Leather belt', 'Accessories', 220),
+(null, 'Bag', 'Unisex bag suitable for carrying laptops with room for many additional items', 'Accessories', 420),
+(null, 'Mens Shoes', 'Leather upper and lower lace up shoes', 'Mens', 365),
+(null, 'Wallet', 'Travel wallet suitable for men and women. Several compartments for credit cards, passports and cash', 'Accessories', 150),
+(null, 'A4 Paper bundle','A4 Paper 10GSM - 500 pages','Office Consumables',100),
+(null, 'Ink cartridge','Ink cartridge for InkJet preinters','Office Consumables',300),
+(null, 'Printer toner','Printer toner for Laser Printers','Office Consumables',1000),
+(null, 'Wired mouse by XYZ','Wired mouse by XYZ','Computers',30),
+(null, 'Wireless mouse by XYZ','Wired mouse by XYZ','Computers',60),
+(null, 'Wired keyboard by XYZ','Wired keyboard by XYZ','Computers',80),
+(null, 'Wireless keyboard by XYZ','Wired keyboard by XYZ','Computers',160),
+(null, 'Pen drive 16GB','Pen drive 16GB by ABC','Computers',60),
+(null, 'Pen drive 32GB','Pen drive 32GB by ABC','Computers',80),
+(null, 'Pen drive 64GB','Pen drive 64GB by ABC','Computers',100),
+(null, 'Pen drive 128GB','Pen drive 128GB by ABC','Computers',120),
+(null, 'Dish washing liquid','Dish washing liquid by ABC','Kithen & Home',389),
+(null, 'Electric kettle','Electric kettle corless','Kithen & Home',170),
+(null, 'Pillows','Set of 2 Pillow by pillows.com','Kithen & Home',210),
+(null, 'Floor broom','set of 4 brooms by broom.com','Kithen & Home',200);
+
+select cast(CURRENT_TIMESTAMP()+0 as char);
+
+select concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1);
+
+#select concat(CONVERT(varchar,CURRENT_TIMESTAMP()+0),'_',1);
+############### order table  #####################
+insert into orders 
+values (concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,1,2,200),
+(concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,11,10,1000),
+(concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,15,1,60),
+(concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,1,2,200);    
+
+select * from products;

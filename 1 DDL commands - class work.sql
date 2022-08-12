@@ -70,5 +70,37 @@ rename ecommerce_customer;
 describe ecommerce_customer;
 
 
+alter table ecommerce_customer
+add passcode varchar(20);
+
+update ecommerce_customer
+set passcode='admin123';
+
+############### Product table  #####################
+create table if not exists products(
+product_id          int unsigned auto_increment primary key, 
+product_name       varchar(50), 
+product_description varchar(2000), 
+category           varchar(30), 
+unit_price          float
+);
+
+select CURRENT_TIMESTAMP()+0 as ts;
+
+############### order table  #####################
+drop table orders;
+
+create table if not exists orders(
+order_id varchar(100), 
+customer_id int unsigned,
+product_id int unsigned, 
+product_quantity int, 
+sale_amount float,
+FOREIGN key (customer_id) references ecommerce_customer(customer_id),
+FOREIGN key (product_id) references products(product_id)
+);    
+
+
+    
 
 
