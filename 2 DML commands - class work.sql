@@ -75,14 +75,6 @@ show databases;
 
 
 ########### Product table ##########
-products(
-    product_id          int unsigned auto_increment primary key, 
-    product_name       varchar(50), 
-    product_description varchar(2000), 
-    category           varchar(30), 
-    unit_price          float
-    );
-
 
 insert into products
 values (null, 'Business Shirt', 'Wrinkle-free cotton business shirt', 'Mens clothing', 300),
@@ -111,16 +103,59 @@ values (null, 'Business Shirt', 'Wrinkle-free cotton business shirt', 'Mens clot
 (null, 'Pillows','Set of 2 Pillow by pillows.com','Kithen & Home',210),
 (null, 'Floor broom','set of 4 brooms by broom.com','Kithen & Home',200);
 
+select CURRENT_TIMESTAMP();
+
 select cast(CURRENT_TIMESTAMP()+0 as char);
 
 select concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1);
 
-#select concat(CONVERT(varchar,CURRENT_TIMESTAMP()+0),'_',1);
+#select concat(CONVERT(varchar,CURRENT_TIMESTAMP()+0),'_',12);
+
+truncate table orders;
+describe  orders;
+/*
+order_id, varchar(100), customer_id, int unsigned, product_id, int unsigned,  product_quantity, int,  sale_amount, float
+*/
+
 ############### order table  #####################
 insert into orders 
-values (concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,1,2,200),
-(concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,11,10,1000),
-(concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,15,1,60),
-(concat(cast(CURRENT_TIMESTAMP()+0 as char),'_',1),10,1,2,200);    
+values (concat(12,'_',cast(CURRENT_TIMESTAMP()+0 as char)),12,1,2,200),
+(concat(12,'_',cast(CURRENT_TIMESTAMP()+0 as char)),12,11,10,1000),
+(concat(12,'_',cast(CURRENT_TIMESTAMP()+0 as char)),12,15,2,60),
+(concat(12,'_',cast(CURRENT_TIMESTAMP()+0 as char)),12,1,3,200);    
+
+insert into orders 
+values (concat(11,'_',cast(CURRENT_TIMESTAMP()+0 as char)),11,1,2,200),
+(concat(11,'_',cast(CURRENT_TIMESTAMP()+0 as char)),11,11,10,1000),
+(concat(11,'_',cast(CURRENT_TIMESTAMP()+0 as char)),11,15,1,60),
+(concat(11,'_',cast(CURRENT_TIMESTAMP()+0 as char)),11,1,2,200);    
+
+insert into orders 
+values (concat(15,'_',cast(CURRENT_TIMESTAMP()+0 as char)),15,1,2,200),
+(concat(15,'_',cast(CURRENT_TIMESTAMP()+0 as char)),15,3,10,450),
+(concat(15,'_',cast(CURRENT_TIMESTAMP()+0 as char)),15,15,1,60),
+(concat(15,'_',cast(CURRENT_TIMESTAMP()+0 as char)),15,16,2,80);   
+
+insert into orders 
+values (concat(16,'_',cast(CURRENT_TIMESTAMP()+0 as char)),16,24,3,210),
+(concat(16,'_',cast(CURRENT_TIMESTAMP()+0 as char)),16,13,10,1000),
+(concat(16,'_',cast(CURRENT_TIMESTAMP()+0 as char)),16,15,1,60),
+(concat(16,'_',cast(CURRENT_TIMESTAMP()+0 as char)),16,1,2,200);     
+
+insert into orders 
+values (concat(19,'_',cast(CURRENT_TIMESTAMP()+0 as char)),19,1,2,200),
+(concat(20,'_',cast(CURRENT_TIMESTAMP()+0 as char)),20,11,10,1000),
+(concat(20,'_',cast(CURRENT_TIMESTAMP()+0 as char)),20,15,1,60),
+(concat(20,'_',cast(CURRENT_TIMESTAMP()+0 as char)),20,1,2,200);    
+
+insert into orders 
+values (concat(12,'_',cast(CURRENT_TIMESTAMP()+0 as char)),12,1,2,200),
+(concat(12,'_',cast(CURRENT_TIMESTAMP()+0 as char)),12,11,10,1000),
+(concat(13,'_',cast(CURRENT_TIMESTAMP()+0 as char)),13,15,1,60),
+(concat(13,'_',cast(CURRENT_TIMESTAMP()+0 as char)),13,1,2,200),
+(concat(16,'_',cast(CURRENT_TIMESTAMP()+0 as char)),16,1,2,200),
+(concat(11,'_',cast(CURRENT_TIMESTAMP()+0 as char)),11,11,10,1000),
+(concat(17,'_',cast(CURRENT_TIMESTAMP()+0 as char)),17,15,1,60),
+(concat(17,'_',cast(CURRENT_TIMESTAMP()+0 as char)),17,1,2,200);    
 
 select * from products;
